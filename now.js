@@ -2,7 +2,7 @@ const { spawn } = require('child_process');
 
 function nowDeploy(context) {
   const now = spawn('npx', [
-    'vercel@48.0.3',
+    'vercel@41.1.4',
     '-m',
     'githubCommitAuthorName=Minsu Lee',
     '-m',

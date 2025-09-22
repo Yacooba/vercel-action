@@ -115,7 +115,7 @@ async function vercelDeploy(ref, commit) {
   }
 
   return new Promise(res => {
-    exec.exec('npx', ['vercel@48.0.3', ...args], {
+    exec.exec('npx', ['vercel@41.1.4', ...args], {
       ...(workingDirectory ? { cwd: workingDirectory } : {}),
       listeners: {
         stdout: data => {
@@ -132,7 +132,7 @@ async function vercelDeploy(ref, commit) {
 
 async function vercelInspect(deploymentUrl) {
   // eslint-disable-next-line no-unused-vars
-  const args = ['vercel@48.0.3', 'inspect', deploymentUrl, '-t', vercelToken];
+  const args = ['vercel@41.1.4', 'inspect', deploymentUrl, '-t', vercelToken];
 
   if (vercelScope) {
     core.info('using scope');
@@ -308,7 +308,7 @@ async function aliasDomainsToDeployment(deploymentUrl) {
   }
   const promises = aliasDomains.map(domain => {
     return exec.exec('npx', [
-      'vercel@48.0.3',
+      'vercel@41.1.4',
       ...args,
       'alias',
       deploymentUrl,

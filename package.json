@@ -29,7 +29,7 @@
     "@octokit/webhooks": "latest",
     "axios": "^1.12.2",
     "common-tags": "^1.8.0",
-    "vercel": "48.0.3"
+    "vercel": "41.1.4"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.1",
