@@ -115,7 +115,7 @@ async function vercelDeploy(ref, commit) {
   }
 
   return new Promise(res => {
-    exec.exec('pnpm dlx', ['vercel@48.0.3', ...args], {
+    exec.exec('npx', ['vercel@48.0.3', ...args], {
       ...(workingDirectory ? { cwd: workingDirectory } : {}),
       listeners: {
         stdout: data => {
@@ -140,7 +140,7 @@ async function vercelInspect(deploymentUrl) {
   }
 
   return new Promise(res => {
-    exec.exec('pnpm dlx', args, {
+    exec.exec('npx', args, {
       ...(workingDirectory ? { cwd: workingDirectory } : {}),
       listeners: {
         stdout: data => {
@@ -307,7 +307,7 @@ async function aliasDomainsToDeployment(deploymentUrl) {
     args.push('--scope', vercelScope);
   }
   const promises = aliasDomains.map(domain => {
-    return exec.exec('pnpm dlx', [
+    return exec.exec('npx', [
       'vercel@48.0.3',
       ...args,
       'alias',

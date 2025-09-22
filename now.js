@@ -1,9 +1,7 @@
-const { spawn } = require('child_process')
+const { spawn } = require('child_process');
 
-function nowDeploy( context ) {
-
-
-  const now = spawn('pnpm dlx', [
+function nowDeploy(context) {
+  const now = spawn('npx', [
     'vercel@48.0.3',
     '-m',
     'githubCommitAuthorName=Minsu Lee',
@@ -22,21 +20,20 @@ function nowDeploy( context ) {
     '-m',
     'githubCommitSha=48615ece0acfbe87682bbb64d7b87b75db32b60e',
     '-m',
-    'githubCommitMessage=test'])
+    'githubCommitMessage=test',
+  ]);
 
-  now.stdout.on('data', (data) => {
-    console.log(`stdout': ${data}`)
-  })
+  now.stdout.on('data', data => {
+    console.log(`stdout': ${data}`);
+  });
 
-  now.stderr.on(`data`, (data) => {
-    console.error(`stderr: ${data}`)
-  })
+  now.stderr.on(`data`, data => {
+    console.error(`stderr: ${data}`);
+  });
 
-  now.on('close', (code) => {
+  now.on('close', code => {
     if (code === 0) {
-      console.log(`child process exited with code ${code}`)
+      console.log(`child process exited with code ${code}`);
     }
-  })
+  });
 }
-
-
