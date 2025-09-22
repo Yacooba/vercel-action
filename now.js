@@ -3,8 +3,8 @@ const { spawn } = require('child_process')
 function nowDeploy( context ) {
 
 
-  const now = spawn('npx', [
-    'now',
+  const now = spawn('pnpm dlx', [
+    'vercel@48.0.3',
     '-m',
     'githubCommitAuthorName=Minsu Lee',
     '-m',
